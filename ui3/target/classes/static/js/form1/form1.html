@@ -1,0 +1,66 @@
+<div  ng-app="hello"  ng-controller="form1">
+<h1>Greeting</h1>
+<div>
+	<p>The ID is {{controller.greeting.id}}</p>
+	<p>The form1 content is {{controller.greeting.content}}</p>
+</div>
+<table class="table" ng-show="!show" border="2px"  >
+                <thead>
+                <tr>
+                    <th style= "text-align:center;"  >Name</th>
+                    <th   style= "text-align:center;">Email</th>
+                    <th  style= "text-align:center;" colspan="2">Option</th>
+       
+                 
+                </tr>
+                </thead>
+                <tbody ng-repeat="data in data">
+                <tr >
+                    <td align="center">{{data.user}}</td>
+                    <td align="center">{{data.email}}</td>           
+                     <td >
+                        <button align="center" class="delete" ng-click="delete(data.id)">Delete</button>
+                    </td>
+                      <td>
+                        <button align="center" class="edit" ng-click="startEdit(data)">Edit</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            
+<form  ng-submit="enterdata()" name="myForm" novalidate>
+<p>Username:<br>
+  <input type="text" name="user" ng-model="user" required placeholder="harsha">
+  <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+  <span ng-show="myForm.user.$error.required">Username is required.</span>
+  </span>
+</p>
+
+<p>Email:<br>
+  <input type="email" name="email" ng-model="email" required placeholder="harsha@gmail.com">
+  <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+  <span ng-show="myForm.email.$error.required">Email is required.</span>
+  <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+  </span>
+</p>
+
+<p>
+  <input type="submit"
+  ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+  myForm.email.$dirty && myForm.email.$invalid">
+</p>
+  <button ng-click="getShow()" type="button" >{{show?'Display':'Hide'}}</button>
+<!-- <div ng-repeat="data in data"> -->
+<!-- <p ng-show="data.user">Entered UserName:{{data.user}}</p> -->
+<!-- <p ng-show="data.email">Entered Email:{{data.email}}</p></div> -->
+
+</form>
+
+
+  
+            
+
+</div>
+<!-- <div  ng-show="!authenticated"> -->
+<!-- 	<p>Login to see your greeting</p> -->
+<!-- </div> -->

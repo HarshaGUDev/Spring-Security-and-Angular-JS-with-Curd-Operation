@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: double-ui2
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: AL1700
+Implementation-Vendor-Id: org.test
+Build-Jdk: 1.8.0_101
+Implementation-URL: http://projects.spring.io/spring-boot/double-ui2/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
