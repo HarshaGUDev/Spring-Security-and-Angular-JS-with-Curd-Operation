@@ -282,7 +282,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_IfCskMd5Eea8eIStP24wUQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_nkL_oMd5EeaGTrfxRDrC2A" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_HgahZcd5Eea8eIStP24wUQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_UflOwMhUEea_MpwUML79Eg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_HgahZcd5Eea8eIStP24wUQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_IfCskcd5Eea8eIStP24wUQ" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -312,7 +312,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_IfDToMd5Eea8eIStP24wUQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_nkOb4Md5EeaGTrfxRDrC2A" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_HgZ6c8d5Eea8eIStP24wUQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_UfoSEMhUEea_MpwUML79Eg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_HgZ6c8d5Eea8eIStP24wUQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_IfDTocd5Eea8eIStP24wUQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -624,6 +624,7 @@
     </bindings>
     <bindings xmi:id="_Hh-nbcd5Eea8eIStP24wUQ" keySequence="ALT+SHIFT+X R" command="_HgYsBMd5Eea8eIStP24wUQ"/>
     <bindings xmi:id="_Hh-nbsd5Eea8eIStP24wUQ" keySequence="ALT+CTRL+X G" command="_HgbIS8d5Eea8eIStP24wUQ"/>
+    <bindings xmi:id="_UNKpEMhUEea_MpwUML79Eg" keySequence="CTRL+SHIFT+Z" command="_UMq50MhUEea_MpwUML79Eg"/>
   </bindingTables>
   <bindingTables xmi:id="_HhzBMMd5Eea8eIStP24wUQ" elementId="org.eclipse.tm.terminal.EditContext" bindingContext="_HgeLgMd5Eea8eIStP24wUQ">
     <bindings xmi:id="_HhzBMcd5Eea8eIStP24wUQ" keySequence="ALT+ARROW_RIGHT" command="_HgbITsd5Eea8eIStP24wUQ"/>
@@ -935,6 +936,7 @@
   <bindingTables xmi:id="_Ip-KN8d5Eea8eIStP24wUQ" bindingContext="_Ip-KNsd5Eea8eIStP24wUQ"/>
   <bindingTables xmi:id="_Ip-KOcd5Eea8eIStP24wUQ" bindingContext="_Ip-KOMd5Eea8eIStP24wUQ"/>
   <bindingTables xmi:id="_Ip-xQcd5Eea8eIStP24wUQ" bindingContext="_Ip-xQMd5Eea8eIStP24wUQ"/>
+  <bindingTables xmi:id="_Ud0UMchUEea_MpwUML79Eg" bindingContext="_Ud0UMMhUEea_MpwUML79Eg"/>
   <rootContext xmi:id="_HfVjE8d5Eea8eIStP24wUQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/org.eclipse.platform" name="In Dialogs and Windows" description="Either a dialog or a window is open">
     <children xmi:id="_HfVjFMd5Eea8eIStP24wUQ" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/org.eclipse.platform" name="In Windows" description="A window is open">
       <children xmi:id="_HfVjFcd5Eea8eIStP24wUQ" elementId="org.eclipse.e4.ui.contexts.views" contributorURI="platform:/plugin/org.eclipse.platform" name="%bindingcontext.name.bindingView"/>
@@ -1068,6 +1070,7 @@
   <rootContext xmi:id="_Ip-KNsd5Eea8eIStP24wUQ" elementId="org.springframework.ide.eclipse.beans.search.actionSet" name="Auto::org.springframework.ide.eclipse.beans.search.actionSet"/>
   <rootContext xmi:id="_Ip-KOMd5Eea8eIStP24wUQ" elementId="org.springsource.ide.eclipse.quicksearch.actionSet" name="Auto::org.springsource.ide.eclipse.quicksearch.actionSet"/>
   <rootContext xmi:id="_Ip-xQMd5Eea8eIStP24wUQ" elementId="org.springsource.ide.eclipse.commons.launch.actionSet" name="Auto::org.springsource.ide.eclipse.commons.launch.actionSet"/>
+  <rootContext xmi:id="_Ud0UMMhUEea_MpwUML79Eg" elementId="org.eclipse.angularjs.ui.AngularActionSet" name="Auto::org.eclipse.angularjs.ui.AngularActionSet"/>
   <descriptors xmi:id="_HlGz4Md5Eea8eIStP24wUQ" elementId="org.eclipse.e4.ui.compatibility.editor" allowMultiple="true" category="org.eclipse.e4.primaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor">
     <tags>Editor</tags>
   </descriptors>
@@ -1688,6 +1691,18 @@
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.buildship.ui"/>
     <tags>View</tags>
     <tags>categoryTag:Gradle</tags>
+  </descriptors>
+  <descriptors xmi:id="_UPbS4MhUEea_MpwUML79Eg" elementId="org.eclipse.angularjs.ui.views.AngularExplorerView" label="Angular Explorer" iconURI="platform:/plugin/org.eclipse.angularjs.ui/icons/full/eview16/explorer.png" tooltip="" category="AngularJS" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <persistedState key="originalCompatibilityViewClass" value="org.eclipse.angularjs.internal.ui.views.AngularExplorerView"/>
+    <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.angularjs.ui"/>
+    <tags>View</tags>
+    <tags>categoryTag:AngularJS</tags>
+  </descriptors>
+  <descriptors xmi:id="_UPchAMhUEea_MpwUML79Eg" elementId="tern.eclipse.ide.ui.views.TernOutlineView" label="Tern Outline" iconURI="platform:/plugin/tern.eclipse.ide.ui/icons/full/eview16/tern-outline.png" tooltip="" category="JavaScript" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <persistedState key="originalCompatibilityViewClass" value="tern.eclipse.ide.internal.ui.views.TernOutlineView"/>
+    <persistedState key="originalCompatibilityViewBundle" value="tern.eclipse.ide.ui"/>
+    <tags>View</tags>
+    <tags>categoryTag:JavaScript</tags>
   </descriptors>
   <menuContributions xmi:id="_HfVjF8d5Eea8eIStP24wUQ" elementId="org.eclipse.ui.window.customizePerspective" contributorURI="platform:/plugin/org.eclipse.platform" positionInParent="popup:toolbar">
     <children xsi:type="menu:HandledMenuItem" xmi:id="_HfVjGMd5Eea8eIStP24wUQ" elementId="org.eclipse.ui.window.customizePerspective" contributorURI="platform:/plugin/org.eclipse.platform" label="%command.name.customize" command="_HfVjGcd5Eea8eIStP24wUQ"/>
@@ -2995,6 +3010,9 @@
   <commands xmi:id="_IYIzU8d5Eea8eIStP24wUQ" elementId="AUTOGEN:::org.springframework.ide.eclipse.aop.mylyn.ui.filter/org.springframework.ide.eclipse.beans.mylyn.ui.actions.filterSpringExplorerAction" commandName="Focus on Active Task" description="Focus on Active Task (Alt+click to reveal filtered elements)" category="_HgTMZsd5Eea8eIStP24wUQ"/>
   <commands xmi:id="_IYIzVMd5Eea8eIStP24wUQ" elementId="AUTOGEN:::org.eclipse.mylyn.ui.projectexplorer.filter/org.springframework.ide.eclipse.beans.mylyn.ui.actions.filterSpringExplorerAction" commandName="Focus on Active Task" description="Focus on Active Task (Alt+click to reveal filtered elements)" category="_HgTMZsd5Eea8eIStP24wUQ"/>
   <commands xmi:id="_IYIzVcd5Eea8eIStP24wUQ" elementId="AUTOGEN:::org.springframework.ide.eclipse.ui.navigator.springExplorer.sorting/org.springframework.ide.eclipse.ui.navigator.springExplorer.sortingAction" commandName="Sort" description="Sort" category="_HgTMZsd5Eea8eIStP24wUQ"/>
+  <commands xmi:id="_UMqSwchUEea_MpwUML79Eg" elementId="org.eclipse.angularjs.ui.convertProjectToAngular" commandName="Convert to AngularJS Project..." category="_HgSlWsd5Eea8eIStP24wUQ"/>
+  <commands xmi:id="_UMq50MhUEea_MpwUML79Eg" elementId="org.eclipse.angularjs.ui.navigate.open.angular.element" commandName="Open Angular Element" description="Opens an Angular Element in a JavaScript editor" category="_HgTMcMd5Eea8eIStP24wUQ"/>
+  <commands xmi:id="_UMq50chUEea_MpwUML79Eg" elementId="tern.eclipse.ide.ui.convertProjectToTern" commandName="Convert to Tern Project..." category="_HgSlWsd5Eea8eIStP24wUQ"/>
   <addons xmi:id="_HfVjGsd5Eea8eIStP24wUQ" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_HfVjG8d5Eea8eIStP24wUQ" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_HfVjHMd5Eea8eIStP24wUQ" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -3006,7 +3024,7 @@
   <addons xmi:id="_HfVjIsd5Eea8eIStP24wUQ" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_HfVjI8d5Eea8eIStP24wUQ" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_HfbCoMd5Eea8eIStP24wUQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_UNjqoMhUEea_MpwUML79Eg" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_HgSlUMd5Eea8eIStP24wUQ" elementId="org.eclipse.ui.category.edit" name="Edit"/>
   <categories xmi:id="_HgSlUcd5Eea8eIStP24wUQ" elementId="org.eclipse.mylyn.wikitext.ui.editor.category" name="WikiText Markup Editing Commands" description="commands for editing lightweight markup"/>
