@@ -4,6 +4,8 @@ import java.security.Principal;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +16,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
@@ -24,6 +27,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @SpringBootApplication
 @Controller
 @EnableZuulProxy
+@EnableWebMvcSecurity
 public class GatewayApplication {
 
 	@RequestMapping("/user")
@@ -44,21 +48,29 @@ public class GatewayApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayApplication.class, args);
 	}
-
+	
 	@Configuration
 	@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 	protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
+		 @Autowired
+		 DataSource dataSource;
 		@Autowired
 		public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+			
 			// @formatter:off
-			auth.inMemoryAuthentication()
-				.withUser("user").password("password").roles("USER")
-			.and()
-				.withUser("admin").password("admin").roles("USER", "ADMIN", "READER", "WRITER")
-			.and()
-				.withUser("audit").password("audit").roles("USER", "ADMIN", "READER");
-// @formatter:on
+//			auth.inMemoryAuthentication()
+//				.withUser("user").password("password").roles("USER")
+//			.and()
+//				.withUser("admin").password("admin").roles("USER", "ADMIN","WRITER"."READER")
+//			.and()
+//				.withUser("audit").password("audit").roles("USER", "ADMIN");
+			
+//// @formatter:on
+			 auth.jdbcAuthentication().dataSource(dataSource)
+			  .usersByUsernameQuery(
+			   "select username,password, enabled from users where username=?")
+			  .authoritiesByUsernameQuery(
+			   "select username, role from user_roles where username=?");
 		}
 
 		@Override

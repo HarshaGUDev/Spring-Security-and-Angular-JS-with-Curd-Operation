@@ -49,6 +49,7 @@
   ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
   myForm.email.$dirty && myForm.email.$invalid">
 </p>
+<p ng show="error">{{error}}</p>
   <button ng-click="getShow()" type="button" >{{show?'Display':'Hide'}}</button>
 <!-- <div ng-repeat="data in data"> -->
 <!-- <p ng-show="data.user">Entered UserName:{{data.user}}</p> -->

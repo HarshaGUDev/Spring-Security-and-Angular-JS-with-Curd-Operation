@@ -19,11 +19,11 @@ angular.module('form1', [])
     	}
 		response.success(function(data, status, headers, config) {
 			$scope.getAll();
-			//$scope.isEdit = true;
 			$scope.endEdit();
 		});
 		response.error(function(data, status, headers, config) {
-			alert( "Exception details: " + JSON.stringify({data: data}));
+			//alert( "Exception details: " + JSON.stringify({data: data}));
+			$scope.error="user is not having access for submiting";
 		});
 	};
 
@@ -33,7 +33,7 @@ angular.module('form1', [])
 			$scope.getAll();
 		});
 		response.error(function(data, status, headers, config) {
-			alert( "Exception details: " + JSON.stringify({data: data}));
+			$scope.error="user is not having access for deleting";
 		});
 	};
 	$scope.getAll= function() {
@@ -43,7 +43,8 @@ angular.module('form1', [])
 			$scope.data=data._embedded.people;
 		});
 		response.error(function(data, status, headers, config) {
-			alert( "Exception details: " + JSON.stringify({data: data}));
+			//alert( "Exception details: " + JSON.stringify({data: data}));
+			$scope.error="user is not having access requesting data ";
 		});};
 
 	$scope.startEdit= function(data) {
