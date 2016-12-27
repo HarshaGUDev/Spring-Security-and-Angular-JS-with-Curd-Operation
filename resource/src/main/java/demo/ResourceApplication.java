@@ -63,7 +63,7 @@ public class ResourceApplication extends WebSecurityConfigurerAdapter {
 		// We need this to prevent the browser from popping up a dialog on a 401
 		http.httpBasic().disable().csrf()
 				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/**").hasRole("WRITER")
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/**").hasAnyRole("WRITER","USER")
 				.anyRequest().authenticated();
 	}
 

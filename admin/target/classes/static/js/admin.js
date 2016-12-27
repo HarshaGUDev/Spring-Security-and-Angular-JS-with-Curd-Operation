@@ -35,8 +35,11 @@ function($http) {
 	});
 
 	self.update = function() {
+	
 		$http.post('/resource/', {content: self.greeting.content}).then(function(response) {
+			alret(data);
 			self.greeting = response.data;
+			alert(greeting);
 		})
 	}
 

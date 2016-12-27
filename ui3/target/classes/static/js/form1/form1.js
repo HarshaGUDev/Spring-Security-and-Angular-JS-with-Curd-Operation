@@ -1,4 +1,5 @@
-angular.module('form1', [])
+angular.module('form1', ['UserValidation'])
+
 .controller('form1', function($scope,$http) {
 	var self = this;
 	$http.get('resource/').then(function(response) {
@@ -9,7 +10,9 @@ angular.module('form1', [])
 	$scope.show=true;
     $scope.enterdata = function() {
     	var formData = {
-				"user" : $scope.user,
+				"firstName" : $scope.firstName,
+				"secondName" : $scope.secondName,
+				"mobile" : $scope.mobile,
 				"email":$scope.email
 		};
     	if($scope.isEdit){
@@ -23,7 +26,7 @@ angular.module('form1', [])
 		});
 		response.error(function(data, status, headers, config) {
 			//alert( "Exception details: " + JSON.stringify({data: data}));
-			$scope.error="user is not having access for submiting";
+			$scope.error=data;
 		});
 	};
 
@@ -49,7 +52,9 @@ angular.module('form1', [])
 
 	$scope.startEdit= function(data) {
 		$scope.isEdit = false;
-		$scope.user = data.user;
+		$scope.firstName = data.firstName;
+		$scope.secondName = data.secondName;
+		$scope.mobile = data.mobile;
 		$scope.email = data.email;
 		$scope.id = data.id;
 	};
@@ -61,6 +66,17 @@ angular.module('form1', [])
 	$scope.getShow= function() {
 		$scope.show=!$scope.show;
 		$scope.getAll();
-	}
-
+	};
+	
 });
+angular.module('UserValidation', []).directive('validPasswordC', function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elm, attrs, ctrl) {
+            ctrl.$parsers.unshift(function (viewValue, $scope) {
+                var noMatch = viewValue != scope.myForm.password.$viewValue
+                ctrl.$setValidity('noMatch', !noMatch)
+            })
+        }
+    }});
+
