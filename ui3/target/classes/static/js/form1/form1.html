@@ -1,4 +1,4 @@
-<div  ng-app="form1"  ng-controller="form1" class="container">
+<div   ng-controller="form1" class="container">
 <h1>Greeting</h1>
 <div >
 	<p>The ID is {{controller.greeting.id}}</p>
@@ -6,7 +6,7 @@
 </div>
 <table class="table table-hover" ng-show="!show" border="2px"  >
                 <thead  class="thead-inverse">
-                <tr>
+                <tr ng-show="!show">
                     <th scope="row" style= "text-align:center;"  >FirstName</th>
                
                     <th   style= "text-align:center;">SecondName</th>
@@ -23,7 +23,7 @@
                 </thead>
                 <tbody ng-repeat="data in data">
                 <tr >
-                    <td align="center">{{data.firstNmae}}</td>
+                    <td align="center">{{data.firstName}}</td>
                     <td align="center">{{data.secondName}}</td> 
                      <td align="center">{{data.mobile}}</td>
                     <td align="center">{{data.email}}</td>   
@@ -59,7 +59,7 @@
 <!-- <p>Username:<br> -->
   <input 	class="form-control" type="number" name="number" ng-model="mobile" required placeholder="9739116260">
   <span style="color:red" ng-show="myForm.number.$dirty && myForm.number.$invalid">
-  <span ng-show="myForm.number.$error.required">Username is required.</span>
+  <span ng-show="myForm.number.$error.required">Number is required</span>
   </span></label>
   
 </p> 
@@ -72,22 +72,10 @@
   <span ng-show="myForm.email.$error.email">Invalid email address.</span>
   </span></label> 
 </p>
- <label for="password">Password</label>
-       <input type="password" name="password" ng-model="password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required  />
-   <span ng-show="myForm.password.$error.required && myForm.password.$dirty">required</span>
-   <span ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">Passwords must be between 8 and 20 characters.</span>
-   <span ng-show="!myForm.password.$error.required && !myForm.password.$error.minlength && !myForm.password.$error.maxlength && myForm.password.$error.pattern && myForm.password.$dirty">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
-       <br />
-       
-       
-       <label for="password_c">Confirm Password</label>
-       <input type="password"  name="password_c" ng-model="password_c" valid-password-c required  />
-   <span ng-show="myForm.password_c.$error.required && myForm.password_c.$dirty">Please confirm your password.</span>
-   <span ng-show="!myForm.password_c.$error.required && myForm.password_c.$error.noMatch && myForm.password.$dirty">Passwords do not match.</span>
-       <br />
+ 
        
 
-<p  ng show="error">{{error}}</p>
+<p  ng-show="!show">{{error}}</p>
   <button class="btn btn-primary" ng-click="getShow()" type="button" >{{show?'Display':'Hide'}}</button>
   <input class="btn btn-primary" type="submit"
   ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||

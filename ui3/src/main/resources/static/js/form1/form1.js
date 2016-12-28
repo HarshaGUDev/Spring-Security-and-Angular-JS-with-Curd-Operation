@@ -1,4 +1,4 @@
-angular.module('form1', ['UserValidation'])
+angular.module('form1', [])
 
 .controller('form1', function($scope,$http) {
 	var self = this;
@@ -14,13 +14,17 @@ angular.module('form1', ['UserValidation'])
 				"secondName" : $scope.secondName,
 				"mobile" : $scope.mobile,
 				"email":$scope.email
+				
 		};
+   
     	if($scope.isEdit){
+    		
     		var response = $http.post('/resource/people/', formData);
     	} else {
     		var response = $http.put('/resource/people/' + $scope.id, formData);
     	}
 		response.success(function(data, status, headers, config) {
+			
 			$scope.getAll();
 			$scope.endEdit();
 		});
@@ -69,14 +73,5 @@ angular.module('form1', ['UserValidation'])
 	};
 	
 });
-angular.module('UserValidation', []).directive('validPasswordC', function () {
-    return {
-        require: 'ngModel',
-        link: function (scope, elm, attrs, ctrl) {
-            ctrl.$parsers.unshift(function (viewValue, $scope) {
-                var noMatch = viewValue != scope.myForm.password.$viewValue
-                ctrl.$setValidity('noMatch', !noMatch)
-            })
-        }
-    }});
+
 

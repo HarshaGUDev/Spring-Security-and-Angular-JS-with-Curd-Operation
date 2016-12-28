@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.core.Authentication;
@@ -72,21 +73,22 @@ public class GatewayApplication {
 			  .authoritiesByUsernameQuery(
 			   "select username, role from user_roles where username=?");
 		}
-
-		@Override
+	
 		protected void configure(HttpSecurity http) throws Exception {
+			
 			// @formatter:off
 			http
 				.httpBasic().and()
 				.logout().and()
 				.authorizeRequests()
-					.antMatchers("/index.html", "/login", "/").permitAll()
+					.antMatchers("/index.html", "/login","/ui3/**","/resource/**", "/").permitAll()
 					.anyRequest().authenticated()
 					.and()
 				.csrf()
 					.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 			// @formatter:on
-		}
+		
+	      	}
 	}
 
 }
