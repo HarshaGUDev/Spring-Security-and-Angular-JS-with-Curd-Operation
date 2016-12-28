@@ -4,7 +4,6 @@
 	<p>The ID is {{controller.greeting.id}}</p>
 	<p>The form1 content is {{controller.greeting.content}}</p>
 </div>
-<!-- <p  class="alert alert-danger" ng-show="!show && data.lenght!=0">No data found!!!</p> -->
 <table class="table table-hover" ng-show="!show" border="2px"  >
                 <thead  class="thead-inverse">
                 <tr >
@@ -27,7 +26,8 @@
                     <td align="center">{{data.firstName}}</td>
                     <td align="center">{{data.secondName}}</td> 
                      <td align="center">{{data.mobile}}</td>
-                    <td align="center">{{data.email}}</td>   
+                    <td align="center">{{data.email}}</td>
+                       
                    
                      <td align="center" >
                         <button class="btn btn-primary"align="center" class="delete" ng-click="delete(data.id)">Delete</button>
@@ -38,11 +38,20 @@
                 </tr>
                 </tbody>
             </table>
-            
-<form  ng-submit="enterdata()" name="myForm"  role="form"  novalidate>
+<div class="well well-lg" style="width:900px;float:right;" width=25px ng-show="xyz">
+<h1 class="alert alert-success"><strong>Your Registration Successful.. Below is your entered data</strong></h1>
+<p><strong>First Name:{{userData.firstName}}</strong></p>
+<p><strong>Second Name:{{userData.secondName}}</strong></p>
+<p><strong>Mobile :{{userData.mobile}}</strong></p>
+<p><strong>Email :{{userData.email}}</strong></p>
+<p><strong>id :{{userData.id}}</strong></p>
+  <button class="btn btn-primary" align="center" class="edit" ng-click="edit2()">Edit</button>
+</div>        
+<form ng-submit="enterdata()" name="myForm"  role="form"  novalidate>
+
 <label for="firstName">FirstName:
 <!-- <p>Username:<br> -->
-  <input 	class="form-control" type="text" name="first" ng-model="firstName" required placeholder="harsha">
+  <input 	class="form-control" type="text" name="first" ng-model="firstName" required placeholder="harsha" required>
   <span style="color:red" ng-show="myForm.first.$dirty && myForm.first.$invalid">
   <span ng-show="myForm.first.$error.required">FirstName is required.</span>
   </span></label>
@@ -50,7 +59,7 @@
 </p> 
 <label >SecondName:
 <!-- <p>Username:<br> -->
-  <input 	class="form-control" type="text" name="second" ng-model="secondName" required placeholder="Gubbi">
+  <input 	class="form-control" type="text" name="second" ng-model="secondName"  placeholder="Gubbi" required>
   <span style="color:red" ng-show="myForm.second.$dirty && myForm.second.$invalid">
   <span ng-show="myForm.second.$error.required">SecondName is required.</span>
   </span></label>
@@ -58,7 +67,7 @@
 </p> 
 <label >Mobile:
 <!-- <p>Username:<br> -->
-  <input 	class="form-control" type="number" name="number" ng-model="mobile" required placeholder="9739116260">
+  <input 	class="form-control" type="number" name="number" ng-model="mobile"  placeholder="9739116260" required>
   <span style="color:red" ng-show="myForm.number.$dirty && myForm.number.$invalid">
   <span ng-show="myForm.number.$error.required">Number is required</span>
   </span></label>
@@ -67,7 +76,7 @@
 
 <label for="email">Email:
 
-  <input class="form-control" type="email" name="email" ng-model="email" required placeholder="harsha@gmail.com">
+  <input class="form-control" type="email" name="email" ng-model="email"  placeholder="harsha@gmail.com" required>
   <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
   <span ng-show="myForm.email.$error.required">Email is required.</span>
   <span ng-show="myForm.email.$error.email">Invalid email address.</span>
@@ -79,10 +88,10 @@
 <p  ng-show="!show">{{error}}</p>
   <button class="btn btn-primary" ng-click="getShow()" type="button" >{{show?'Display':'Hide'}}</button>
   <input class="btn btn-primary" type="submit"
-  ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
-  myForm.email.$dirty && myForm.email.$invalid">
+  ng-disabled="myForm.first.$dirty && myForm.first.$invalid && myForm.first.length==0||myForm.second.$dirty && myForm.second.$invalid && myForm.second.length==0||myForm.number.$dirty && myForm.number.$invalid && myForm.number.length==0 ||
+  myForm.email.$dirty && myForm.email.$invalid && myForm.email.length===0">
 
-
+</div>
 <!-- <div ng-repeat="data in data"> -->
 <!-- <p ng-show="data.user">Entered UserName:{{data.user}}</p> -->
 <!-- <p ng-show="data.email">Entered Email:{{data.email}}</p></div> -->

@@ -18,6 +18,7 @@ import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @SpringBootApplication
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ResourceApplication extends WebSecurityConfigurerAdapter {
 	private String message = "Hello World";
 	private List<Change> changes = new ArrayList<>();
@@ -63,10 +65,14 @@ public class ResourceApplication extends WebSecurityConfigurerAdapter {
 		// We need this to prevent the browser from popping up a dialog on a 401
 		http.httpBasic().disable().csrf()
 				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/**").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/**").hasRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/**").hasRole("ADMIN");
-		
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/**").permitAll()
+				.anyRequest().authenticated();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/**").hasRole("ADMIN")
+		.anyRequest().authenticated();
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/**").hasRole("ADMIN")
+		.anyRequest().authenticated();
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/**").hasRole("ADMIN")
+		.anyRequest().authenticated();
 	}
 
 	@Bean

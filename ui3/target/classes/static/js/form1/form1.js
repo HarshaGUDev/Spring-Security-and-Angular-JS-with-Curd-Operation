@@ -9,6 +9,7 @@ angular.module('form1', [])
 	$scope.isEdit = true;
 	$scope.show=true;
     $scope.enterdata = function() {
+    	$scope.xyz=true;
     	var formData = {
 				"firstName" : $scope.firstName,
 				"secondName" : $scope.secondName,
@@ -24,8 +25,8 @@ angular.module('form1', [])
     		var response = $http.put('/resource/people/' + $scope.id, formData);
     	}
 		response.success(function(data, status, headers, config) {
-			
 			$scope.getAll();
+			$scope.userData=data;
 			$scope.endEdit();
 		});
 		response.error(function(data, status, headers, config) {
