@@ -16,5 +16,4 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 	  @PreAuthorize("hasRole('isAnonymous()')")
 	  @Override
 	  Iterable<Person> findAll();	
-
 	}
