@@ -2,6 +2,7 @@ angular.module('form1', [])
 
 .controller('form1', function($scope,$http) {
 	var self = this;
+
 	$http.get('resource/').then(function(response) {
 		self.greeting = response.data;
 	});
@@ -11,10 +12,10 @@ angular.module('form1', [])
     $scope.enterdata = function() {
     	$scope.xyz=true;
     	var formData = {
-				"firstName" : $scope.firstName,
-				"secondName" : $scope.secondName,
+				"username" : $scope.username,
 				"mobile" : $scope.mobile,
-				"email":$scope.email
+				"email":$scope.email,
+				"password":$scope.password
 				
 		};
    
@@ -28,10 +29,12 @@ angular.module('form1', [])
 			$scope.getAll();
 			$scope.userData=data;
 			$scope.endEdit();
+			$scope.success="Your Registration Successful.. Below is your entered data";
 		});
 		response.error(function(data, status, headers, config) {
 			//alert( "Exception details: " + JSON.stringify({data: data}));
 			$scope.error=data;
+			$scope.errorMessage="Username is already exist";
 		});
 	};
 
@@ -57,8 +60,7 @@ angular.module('form1', [])
 
 	$scope.startEdit= function(data) {
 		$scope.isEdit = false;
-		$scope.firstName = data.firstName;
-		$scope.secondName = data.secondName;
+		$scope.username = data.username;
 		$scope.mobile = data.mobile;
 		$scope.email = data.email;
 		$scope.id = data.id;
@@ -72,7 +74,10 @@ angular.module('form1', [])
 		$scope.show=!$scope.show;
 		$scope.getAll();
 	};
-	
+	 $scope.clicked = function(){
+		       window.location = "/";
+		       
+		 }	
 });
 
 

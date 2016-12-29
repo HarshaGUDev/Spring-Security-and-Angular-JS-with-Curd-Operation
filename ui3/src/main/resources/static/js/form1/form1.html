@@ -1,29 +1,18 @@
 <div   ng-controller="form1" class="container">
-<h1>Greeting</h1>
-<div >
-	<p>The ID is {{controller.greeting.id}}</p>
-	<p>The form1 content is {{controller.greeting.content}}</p>
-</div>
-<table class="table table-hover" ng-show="!show" border="2px"  >
+<table  class="table table-hover"  border="2px"  >
                 <thead  class="thead-inverse">
                 <tr >
-                    <th scope="row" style= "text-align:center;"  >FirstName</th>
-               
-                    <th   style= "text-align:center;">SecondName</th>
+                    <th scope="row" style= "text-align:center;"  >UserName</th>
                      <th scope="row" style= "text-align:center;"  >Mobile</th>
-               
                     <th   style= "text-align:center;">Email</th>         
                     <th colspan="2" width=10 style= "text-align:center;">Option</th>     
                 </tr>
                 </thead>
                 <tbody ng-repeat="data in data">
                 <tr >
-                    <td align="center">{{data.firstName}}</td>
-                    <td align="center">{{data.secondName}}</td> 
+                    <td align="center">{{data.username}}</td>
                      <td align="center">{{data.mobile}}</td>
-                    <td align="center">{{data.email}}</td>
-                       
-                   
+                    <td align="center">{{data.email}}</td>  
                      <td align="center" >
                         <button class="btn btn-primary"align="center" class="delete" ng-click="delete(data.id)">Delete</button>
                       </td>
@@ -33,32 +22,28 @@
                 </tr>
                 </tbody>
             </table>
+
+
 <div class="well well-lg" style="width:900px;float:right;" width=25px ng-show="xyz">
-<h1 class="alert alert-success"><strong>Your Registration Successful.. Below is your entered data</strong></h1>
-<p ><strong>First Name:{{userData.firstName}}</strong></p>
-<p><strong>Second Name:{{userData.secondName}}</strong></p>
+<h1  ng-show="success" ng-hide="errorMessage" class="alert alert-success"><strong>{{success}}</strong></h1>
+<h1  ng-show="errorMessage"  ng-hide="success" class="alert alert-danger"><strong>{{errorMessage}}</strong></h1>
+<div ng-show="success">
+<p ><strong> UserName:{{userData.username}}</strong></p>
 <p><strong>Mobile :{{userData.mobile}}</strong></p>
-<p><strong>Email :{{userData.email}}</strong></p>
+<p><strong>Email :{{userData.email}}</strong></p> 
+</div> </div>       
 
 
-  
-</div>        
+
 <form ng-submit="enterdata()" name="myForm"  role="form"  novalidate>
 
-<label for="firstName">FirstName:
+<label>UserName:
 <!-- <p>Username:<br> -->
-  <input 	class="form-control" type="text" name="first" ng-model="firstName" required placeholder="harsha" required>
-  <span style="color:red" ng-show="myForm.first.$dirty && myForm.first.$invalid">
-  <span ng-show="myForm.first.$error.required">FirstName is required.</span>
+    <input class="form-control"  type="text" name="user" placeholder="Harsha" ng-model="username" required>
+  <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+  <span ng-show="myForm.user.$error.required">Username is required.</span>
   </span></label>
-  
 </p> 
-<label >SecondName:
-<!-- <p>Username:<br> -->
-  <input 	class="form-control" type="text" name="second" ng-model="secondName"  placeholder="Gubbi" required>
-  <span style="color:red" ng-show="myForm.second.$dirty && myForm.second.$invalid">
-  <span ng-show="myForm.second.$error.required">SecondName is required.</span>
-  </span></label>
   
 </p> 
 <label >Mobile:
@@ -78,22 +63,29 @@
   <span ng-show="myForm.email.$error.email">Invalid email address.</span>
   </span></label> 
 </p>
+<label for="password">password:
+
+  <input class="form-control" type="password" name="password" ng-model="password"   required pattern=".{2,}">
+  <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+  <span ng-show="myForm.password.$error.required">password is required.</span>
+  <span ng-show="myForm.password.$error.email">Invalid password address.</span>
+  </span></label> 
+</p>
  
        
 
-<p  ng-show="!show">{{error}}</p>
+<p  class="alert alert-danger" ng-show="!show">{{error}}</p>
   <button class="btn btn-primary" ng-click="getShow()" type="button" >{{show?'Display':'Hide'}}</button>
   <input class="btn btn-primary" type="submit"
-  ng-disabled="myForm.first.$dirty && myForm.first.$invalid && myForm.first.length==0||myForm.second.$dirty && myForm.second.$invalid && myForm.second.length==0||myForm.number.$dirty && myForm.number.$invalid && myForm.number.length==0 ||
-  myForm.email.$dirty && myForm.email.$invalid && myForm.email.length===0">
+  ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+myForm.email.$dirty && myForm.email.$invalid||myForm.number.$dirty && myForm.number.$invalid ||  
+myForm.email.$dirty && myForm.password.$invalid||myForm.user.$dirty && myForm.password.$invalid">
+ <button class="btn btn-primary" ng-click="clicked()" type="button" >LogIn Page</button>
 
 </div>
 </form>
-
-
-  
-            
+          
 <script src="js/angular-bootstrap.js" type="text/javascript"></script>
 <script src="js/form1.js" type="text/javascript"></script>
 </div>
->
+

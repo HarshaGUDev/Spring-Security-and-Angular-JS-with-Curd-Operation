@@ -70,8 +70,8 @@ public class GatewayApplication {
 			 auth.jdbcAuthentication().dataSource(dataSource)
 			  .usersByUsernameQuery(
 			   "select username,password, enabled from users where username=?")
-			  .authoritiesByUsernameQuery(
-			   "select username, role from user_roles where username=?");
+		  .authoritiesByUsernameQuery(
+			   "select username, role from users where username=?");
 		}
 	
 		protected void configure(HttpSecurity http) throws Exception {

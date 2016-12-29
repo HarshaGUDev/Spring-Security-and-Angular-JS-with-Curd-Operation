@@ -67,7 +67,7 @@ public class ResourceApplication extends WebSecurityConfigurerAdapter {
 				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/**").permitAll()
 				.anyRequest().authenticated();
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/**").hasRole("ADMIN")
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/**").permitAll()
 		.anyRequest().authenticated();
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/**").hasRole("ADMIN")
 		.anyRequest().authenticated();

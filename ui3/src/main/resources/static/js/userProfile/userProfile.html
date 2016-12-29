@@ -1,0 +1,14 @@
+
+<div  ng-hide="success" class="well well-lg" style="width:400px;">
+<h1>Welcome </h1>
+<strong><p class="alert alert-success">User Name:{{controller.userDetails.username}}</p>
+<p class="alert alert-success">Email:{{controller.userDetails.email}}</p>
+<p class="alert alert-success">Password:{{controller.userDetails.password}}</p>
+<p class="alert alert-success">Mobile:{{controller.userDetails.mobile}}</p>
+<p class="alert alert-success">ID:{{controller.userDetails.id}}</p>
+ <button class="btn btn-primary"align="center" class="delete" ng-click="deleteuser(controller.userDetails.id)">Delete</button>
+  <button class="btn btn-primary" align="center"  ng-click="startEdit(data)">Edit</button>
+ 
+</strong>                  
+</div>
+<div>  <p  ng-hide="success" class="alert alert-success">User data is successfully deleted<p></div>

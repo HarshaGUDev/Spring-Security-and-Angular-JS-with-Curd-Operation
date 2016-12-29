@@ -1,5 +1,5 @@
 angular
-		.module('hello', [ 'ngRoute', 'home', 'message', 'form1'])
+		.module('hello', [ 'ngRoute', 'home', 'message', 'form1','userProfile'])
 		.config(
 
 				function($routeProvider, $httpProvider, $locationProvider) {
@@ -18,9 +18,12 @@ angular
 						templateUrl : 'js/message/message.html',
 						controller : 'message',
 						controllerAs : 'controller'
+					}).when('/userProfile', {
+						templateUrl : 'js/userProfile/userProfile.html',
+						controller : 'userProfile',
+						controllerAs : 'controller'
 					}).otherwise('/');
 
 					$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-				})
-				;
+				})				

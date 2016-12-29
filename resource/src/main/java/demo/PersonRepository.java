@@ -6,15 +6,13 @@ import org.springframework.security.access.prepost.PreAuthorize;
 
 @RepositoryRestResource(collectionResourceRel = "people", path = "people")
 @PreAuthorize("permitAll")
-public interface PersonRepository extends CrudRepository<Person, Long> {
+public interface PersonRepository extends CrudRepository<Users, Long> {
 	
 	  
 	 @PreAuthorize("hasRole('ROLE_ADMIN')")
 	  @Override
-	   Iterable<Person> findAll();
+	   Iterable<Users> findAll();
 	
-	 @PreAuthorize("permitAll")
-	 @Override
-	   Person findOne(Long id);
+	
 	 
 	}

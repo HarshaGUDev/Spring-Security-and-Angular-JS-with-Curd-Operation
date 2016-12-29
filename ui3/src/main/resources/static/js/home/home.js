@@ -4,3 +4,4 @@ angular.module('home', []).controller('home', function($http) {
 		self.user = response.data.name;
 	});
 });
+
