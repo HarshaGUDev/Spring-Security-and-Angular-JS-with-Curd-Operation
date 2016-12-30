@@ -1,5 +1,5 @@
 <div   ng-controller="form1" class="container">
-<table  class="table table-hover"  border="2px"  >
+<table ng-show="!show" class="table table-hover"  border="2px"  >
                 <thead  class="thead-inverse">
                 <tr >
                     <th scope="row" style= "text-align:center;"  >UserName</th>
@@ -31,6 +31,7 @@
 <p ><strong> UserName:{{userData.username}}</strong></p>
 <p><strong>Mobile :{{userData.mobile}}</strong></p>
 <p><strong>Email :{{userData.email}}</strong></p> 
+ <button class="btn btn-primary" ng-click="clicked()" type="button" >LogIn Page</button>
 </div> </div>       
 
 
@@ -80,7 +81,7 @@
   ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
 myForm.email.$dirty && myForm.email.$invalid||myForm.number.$dirty && myForm.number.$invalid ||  
 myForm.email.$dirty && myForm.password.$invalid||myForm.user.$dirty && myForm.password.$invalid">
- <button class="btn btn-primary" ng-click="clicked()" type="button" >LogIn Page</button>
+
 
 </div>
 </form>

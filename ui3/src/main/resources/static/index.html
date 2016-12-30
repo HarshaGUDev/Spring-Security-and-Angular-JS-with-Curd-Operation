@@ -16,14 +16,12 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<p>
-			<a class="navbar-brand" href='#/'><b>Home</b></a>
+		
 			<a class="navbar-brand" href='#/message'><b>Message</b></a> 
-			<a class="navbar-brand" href='#/form1'><b>User Registration</b></a>
-			 <a class="navbar-brand" href= '#/userProfile'>User Details</a>
+			<a  ng-show="!home.authenticated" class="navbar-brand" href='#/form1'><b>User Registration</b></a>
+			 <a  ng-show="home.authenticated" class="navbar-brand" href= '#/userProfile'>User Details</a>
+			 <a class="navbar-brand navbar-right" ng-click="logout()" class="navbar-text navbar-right" href='/'><b>MainPage</b></a>
 			</div>
-			</p>
-			<p class="navbar-text navbar-right" >
-				HELLO
 			</p>
 		</div>
 	</nav>

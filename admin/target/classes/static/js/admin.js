@@ -1,4 +1,5 @@
-angular.module('admin', []).controller('home',
+var app=angular.module('admin', [])
+.controller('home',
 
 function($http) {
 
@@ -54,4 +55,4 @@ function($http) {
 		})
 	}
 	
-});
+})

@@ -1,16 +1,8 @@
-angular.module('form1', [])
-
-.controller('form1', function($scope,$http) {
-	var self = this;
-	$scope.show=true;
-
-	$http.get('resource/').then(function(response) {
-		self.greeting = response.data;
-	});
-
+app.controller('form1', function($scope,$http) {
+	
+	console.log("hi")
 	$scope.isEdit = true;
     $scope.enterdata = function() {
-    	$scope.xyz=true;
     	var formData = {
 				"username" : $scope.username,
 				"mobile" : $scope.mobile,
@@ -28,6 +20,7 @@ angular.module('form1', [])
 		response.success(function(data, status, headers, config) {
 			$scope.getAll();
 			$scope.userData=data;
+			console.log(data);
 			$scope.endEdit();
 			$scope.success="Your Registration Successful.. Below is your entered data";
 		});
@@ -47,7 +40,7 @@ angular.module('form1', [])
 			$scope.error="user is not having access for deleting";
 		});
 	};
-	$scope.getAll= function() {
+	$scope.getAll= function(){
 
 		var response = $http.get('/resource/people/');
 		response.success(function(data, status, headers, config) {
@@ -69,15 +62,10 @@ angular.module('form1', [])
 		$scope.isEdit = true;
 		
 	};
-
-	$scope.getShow= function() {
-		$scope.show=!$scope.show;
-		$scope.getAll();
-	};
-	 $scope.clicked = function(){
-		       window.location = "/";
-		       
-		 }	
+	$scope.getAll();
 });
+
+
+
 
 

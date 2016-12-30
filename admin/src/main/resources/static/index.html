@@ -10,24 +10,53 @@
 </style>
 </head>
 
-<body ng-app="admin" ng-cloak class="ng-cloak" ng-controller="home as home">
-	<div class="navbar navbar-default">
-		<div class="container-fluid">
+<body >
+	<div class="navbar navbar-default" ng-app="admin" ng-cloak class="ng-cloak" >
+		<div class="container-fluid" ng-controller="home as home" >
 			<ul class="nav navbar-nav">
 				<li><a class="navbar-primary" href='#/' ng-click="home.home()">Home</a></li>
-				<li><a class="navbar-primary" href='#/' ng-click="home.changes()">Changes</a></li>
+			
+<!-- 				<li><a class="navbar-primary" href='#/' ng-click="home.changes()">Changes</a></li> -->
 			</ul>
 			<p class="navbar-text navbar-right" ng-show="home.authenticated">
 				Signed in as <a href="#/" class="navbar-link">{{home.user.name}}</a>
 			</p>
 		</div>
-	</div>
+	
 	<div class="container">
-		<h1>Admin</h1>
-		<div ng-show="home.authenticated" ng-include="home.template"></div>
-		<div ng-show="!home.authenticated" ng-include="'unauthenticated.html'"></div>
+			<h1>Welcome Admin</h1>
+<!-- 		<div ng-show="home.authenticated" ng-include="home.template"></div> -->
+<!-- 		<div ng-show="!home.authenticated" ng-include="'unauthenticated.html'"></div> -->
+
 	</div>
+	<table  class="table table-hover"  border="2px" ng-controller="form1 as form1" >
+                <thead  class="thead-inverse">
+                <tr >
+                    <th scope="row" style= "text-align:center;"  >UserName</th>
+                     <th scope="row" style= "text-align:center;"  >Mobile</th>
+                    <th   style= "text-align:center;">Email</th>         
+                    <th colspan="2" width=10 style= "text-align:center;">Option</th>     
+                </tr>
+                </thead>
+                <tbody ng-repeat="data in data">
+                <tr >
+                    <td align="center">{{data.username}}</td>
+                     <td align="center">{{data.mobile}}</td>
+                    <td align="center">{{data.email}}</td>  
+                     <td align="center" >
+                        <button class="btn btn-primary"align="center" class="delete" ng-click="delete(data.id)">Delete</button>
+                      </td>
+                      <td align="center">
+                        <button class="btn btn-primary" align="center"  ng-click="startEdit(data)">Edit</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table></div>
 	<script src="js/admin-assets.js" type="text/javascript"></script>
+	
 	<script src="js/admin.js" type="text/javascript"></script>
+	<script src="js/form1.js" type="text/javascript"></script>
+	
+	
 </body>
 </html>

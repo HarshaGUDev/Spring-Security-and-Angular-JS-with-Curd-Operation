@@ -2,13 +2,13 @@ angular.module('form1', [])
 
 .controller('form1', function($scope,$http) {
 	var self = this;
+	$scope.show=true;
 
 	$http.get('resource/').then(function(response) {
 		self.greeting = response.data;
 	});
 
 	$scope.isEdit = true;
-	$scope.show=true;
     $scope.enterdata = function() {
     	$scope.xyz=true;
     	var formData = {
@@ -51,7 +51,7 @@ angular.module('form1', [])
 
 		var response = $http.get('/resource/people/');
 		response.success(function(data, status, headers, config) {
-			$scope.data=data._embedded.people;
+			$scope.data=data;
 		});
 		response.error(function(data, status, headers, config) {
 			//alert( "Exception details: " + JSON.stringify({data: data}));

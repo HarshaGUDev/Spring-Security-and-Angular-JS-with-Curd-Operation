@@ -21,11 +21,11 @@ function($http) {
 		self.authenticated = false;
 	});
 	
-	self.logout = function() {
-		$http.post('/logout', {}).finally(function() {
-			self.authenticated = false;
-			
-		});
-	}
+//	self.logout = function() {
+//		$http.post('/logout', {}).finally(function() {
+//			self.authenticated = false;
+//			 window.history.go(-2);
+//		});
+//	}
 
 });
