@@ -33,17 +33,6 @@ public class AdminController {
 public  Users postDetails(@RequestBody Users user)throws Exception {
 	return  personRepository.save(user);	
 } 		
-			 @RequestMapping(value = "/people/{id}", method = RequestMethod.PUT)
-    public Users updateUser(@PathVariable("id") long id, @RequestBody Users user) throws Exception{
-				 Users userUpdate=new Users();
-				 userUpdate.setEmail(user.getEmail());
-				 userUpdate.setUsername(user.getUsername());
-				 userUpdate.setPassword(user.getPassword());
-				 userUpdate.setId(user.getId());
-				 userUpdate.setMobile(user.getMobile());
-			deleteUser(id);
-       return postDetails(userUpdate);
-    }	
 			
 	
 	

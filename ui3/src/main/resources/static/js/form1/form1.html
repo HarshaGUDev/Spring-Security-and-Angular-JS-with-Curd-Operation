@@ -24,23 +24,23 @@
             </table>
 
 
-<div class="well well-lg" style="width:900px;float:right;" width=25px ng-show="xyz">
+<div class="well well-lg"  width=25px ng-show="xyz">
 <h1  ng-show="success" ng-hide="errorMessage" class="alert alert-success"><strong>{{success}}</strong></h1>
-<h1  ng-show="errorMessage"  ng-hide="success" class="alert alert-danger"><strong>{{errorMessage}}</strong></h1>
+<h3  ng-show="errorMessage"  ng-hide="success" class="alert alert-danger"><strong>{{errorMessage}}</strong></h3>
 <div ng-show="success">
 <p ><strong> UserName:{{userData.username}}</strong></p>
 <p><strong>Mobile :{{userData.mobile}}</strong></p>
 <p><strong>Email :{{userData.email}}</strong></p> 
- <button class="btn btn-primary" ng-click="clicked()" type="button" >LogIn Page</button>
+ <button class="btn btn-primary" ng-click="clicked()" type="button" >Log In Page</button>
 </div> </div>       
 
 
 
-<form ng-submit="enterdata()" name="myForm"  role="form"  novalidate>
+<form ng-submit="enterdata()" name="myForm"  role="form" ng-show="showform" novalidate>
 
 <label>UserName:
 <!-- <p>Username:<br> -->
-    <input class="form-control"  type="text" name="user" placeholder="Harsha" ng-model="username" required>
+    <input class="form-control"  type="text" name="user" placeholder="Username" ng-model="username" required>
   <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
   <span ng-show="myForm.user.$error.required">Username is required.</span>
   </span></label>
@@ -49,7 +49,7 @@
 </p> 
 <label >Mobile:
 <!-- <p>Username:<br> -->
-  <input 	class="form-control" type="number" name="number" ng-model="mobile"  placeholder="9739116260" required>
+  <input 	class="form-control" type="number" name="number" ng-model="mobile"  placeholder="111111" required>
   <span style="color:red" ng-show="myForm.number.$dirty && myForm.number.$invalid">
   <span ng-show="myForm.number.$error.required">Number is required</span>
   </span></label>
@@ -58,7 +58,7 @@
 
 <label for="email">Email:
 
-  <input class="form-control" type="email" name="email" ng-model="email"  placeholder="harsha@gmail.com" required>
+  <input class="form-control" type="email" name="email" ng-model="email"  placeholder="abc@abc.com" required>
   <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
   <span ng-show="myForm.email.$error.required">Email is required.</span>
   <span ng-show="myForm.email.$error.email">Invalid email address.</span>
@@ -75,7 +75,7 @@
  
        
 
-<p  class="alert alert-danger" ng-show="!show">{{error}}</p>
+
   <button class="btn btn-primary" ng-click="getShow()" type="button" >{{show?'Display':'Hide'}}</button>
   <input class="btn btn-primary" type="submit"
   ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  

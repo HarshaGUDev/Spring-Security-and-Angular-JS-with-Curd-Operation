@@ -1,5 +1,5 @@
 angular
-		.module('hello', [ 'ngRoute', 'home', 'message', 'form1','userProfile'])
+		.module('hello', [ 'ngRoute', 'home', 'message', 'form1','userProfile','AdminAccess'])
 		.config(
 
 				function($routeProvider, $httpProvider, $locationProvider) {
@@ -21,6 +21,10 @@ angular
 					}).when('/userProfile', {
 						templateUrl : 'js/userProfile/userProfile.html',
 						controller : 'userProfile',
+						controllerAs : 'controller'
+					}).when('/AdminAccess', {
+						templateUrl : 'js/AdminAccess/AdminAccess.html',
+						controller : 'AdminAccess',
 						controllerAs : 'controller'
 					}).otherwise('/');
 

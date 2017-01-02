@@ -1,5 +1,6 @@
 package demo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +24,10 @@ public class Users {
 	public void setId(long id) {
 		this.id = id;
 	}
-	private String username,email,password;
+	@Column(unique=true)
+	private String username;
+	
+	private String email,password;
 	
 	public String getUsername() {
 		return username;

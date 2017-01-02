@@ -69,9 +69,9 @@ public class ResourceApplication extends WebSecurityConfigurerAdapter {
 				.anyRequest().authenticated();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/**").permitAll()
 		.anyRequest().authenticated();
-		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/**").hasRole("ADMIN")
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/**").permitAll()
 		.anyRequest().authenticated();
-		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/**").hasRole("ADMIN")
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/**").permitAll()
 		.anyRequest().authenticated();
 	}
 
