@@ -3,8 +3,9 @@ angular.module('AdminAccess', [])
 .controller('AdminAccess', function($scope,$http) {
 
 	var self = this;
-	$scope.show=true;
+	$scope.show=false;
 	$scope.showform=true;
+	$scope.message;
 $scope.showMessage=false;
 	$http.get('resource/').then(function(response) {
 		self.greeting = response.data;
@@ -18,8 +19,7 @@ $scope.showMessage=false;
 				"username" : $scope.username,
 				"mobile" : $scope.mobile,
 				"email":$scope.email,
-				"password":$scope.password
-				
+				"password":$scope.password,
 		};
    
     	if($scope.isEdit){
@@ -27,11 +27,11 @@ $scope.showMessage=false;
     		$scope.errorMessage=false;
     		var response = $http.post('/resource/people/', formData)
     		response.success(function(data, status, headers, config) {
-    			$scope.getAll();
     			$scope.userData=data;
+    			$scope.getAll();
     			$scope.endEdit();
     			$scope.showMessage=true;
-    			$scope.success="Your Registration Successful.. Below is your entered data";
+    			$scope.success="Updating is  Successful.. Below is your entered data";
     		});
     		response.error(function(data, status, headers, config) {
     			//alert( "Exception details: " + JSON.stringify({data: data}));
@@ -73,19 +73,22 @@ $scope.showMessage=false;
 		});
 		response.error(function(data, status, headers, config) {
 			//alert( "Exception details: " + JSON.stringify({data: data}));
-			$scope.error="user is not having access requesting data ";
+			$scope.message=data.message;
+			
 		});};
 
 	$scope.startEdit= function(data) {
 		$scope.isEdit = false;
+		$scope.show=true;
 		$scope.username = data.username;
 		$scope.mobile = data.mobile;
 		$scope.email = data.email;
 		$scope.id = data.id;
+		$scope.password = data.password;
 	};
 	$scope.endEdit= function(data) {
 		$scope.isEdit = true;
-		
+		$scope.show=false;
 	};
 
 	$scope.getShow= function() {

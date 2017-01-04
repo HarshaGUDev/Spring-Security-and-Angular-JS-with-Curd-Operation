@@ -13,6 +13,5 @@ public interface PersonRepository extends CrudRepository<Users, Long> {
 	 @PreAuthorize("hasRole('ROLE_ADMIN')")
 	 public Users findByUsername(String username);
 	 @PreAuthorize("hasRole('ROLE_ADMIN')")
-	 public Users findById(long id);
-	 
+	 public Users findById(long id); 
 	}

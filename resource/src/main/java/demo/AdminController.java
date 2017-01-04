@@ -33,7 +33,5 @@ public class AdminController {
 public  Users postDetails(@RequestBody Users user)throws Exception {
 	return  personRepository.save(user);	
 } 		
-			
-	
-	
+
 }
