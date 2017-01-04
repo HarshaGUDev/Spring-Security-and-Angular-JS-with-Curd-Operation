@@ -22,12 +22,14 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @SpringBootApplication
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableJdbcHttpSession
 public class ResourceApplication extends WebSecurityConfigurerAdapter {
 	private String message = "Hello World";
 	private List<Change> changes = new ArrayList<>();

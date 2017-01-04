@@ -3,3 +3,7 @@ server:
 logging:
   level:
     org.springframework.security: DEBUG
+    
+# Set here configurations for the database connection
+
+

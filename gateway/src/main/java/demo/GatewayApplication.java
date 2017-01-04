@@ -22,6 +22,7 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,6 +31,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @EnableZuulProxy
 @EnableWebMvcSecurity
+@EnableJdbcHttpSession
 public class GatewayApplication {
 
 	@RequestMapping("/user")
