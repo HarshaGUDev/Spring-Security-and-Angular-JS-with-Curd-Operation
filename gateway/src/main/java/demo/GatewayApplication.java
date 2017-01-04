@@ -14,6 +14,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -67,9 +68,10 @@ public class GatewayApplication {
 //				.withUser("audit").password("audit").roles("USER", "ADMIN");
 			
 //// @formatter:on
-			 auth.jdbcAuthentication().dataSource(dataSource)
+			 JdbcUserDetailsManagerConfigurer<AuthenticationManagerBuilder> usersByUsernameQuery = auth.jdbcAuthentication().dataSource(dataSource)
 			  .usersByUsernameQuery(
-			   "select username,password, enabled from users where username=?")
+			   "select username,password, enabled from users where username=?");
+			 usersByUsernameQuery
 		  .authoritiesByUsernameQuery(
 			   "select username, role from users where username=?");
 		}

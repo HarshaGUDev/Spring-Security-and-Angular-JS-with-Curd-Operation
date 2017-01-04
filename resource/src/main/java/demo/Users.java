@@ -47,13 +47,13 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getMobile() {
+	public long getMobile() {
 		return mobile;
 	}
-	public void setMobile(int mobile) {
-		this.mobile = mobile;
+	public void setMobile(long l) {
+		this.mobile = l;
 	}
-	private int mobile;
+	private long mobile;
 
 	
 }

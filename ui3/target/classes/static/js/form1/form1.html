@@ -5,6 +5,7 @@
 <p ><strong> UserName:{{userData.username}}</strong></p>
 <p><strong>Mobile :{{userData.mobile}}</strong></p>
 <p><strong>Email :{{userData.email}}</strong></p> 
+<p><strong>Password :{{userData.password}}</strong></p> 
    <h1> Click here for Main page and login again to access  <a  ng-click="logout()"  href='/'>MainPage</a> </h1>
 </div> 
 </div>       
@@ -30,7 +31,7 @@
 
 <label for="email">Email:
 
-  <input class="form-control" type="email" name="email" ng-model="email"  placeholder="abc@abc.com" required>
+  <input class="form-control" type="email" name="email" ng-model="email"  placeholder="abc@email.com" required>
   <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
   <span ng-show="myForm.email.$error.required">Email is required.</span>
   <span ng-show="myForm.email.$error.email">Invalid email address.</span>
@@ -47,8 +48,8 @@
  
   <input class="btn btn-primary" type="submit"
   ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
-myForm.email.$dirty && myForm.email.$invalid||myForm.number.$dirty && myForm.number.$invalid ||  
-myForm.email.$dirty && myForm.password.$invalid||myForm.user.$dirty && myForm.password.$invalid">
+myForm.email.$dirty && myForm.email.$invalid || myForm.number.$dirty && myForm.number.$invalid ||  
+myForm.email.$dirty && myForm.password.$invalid || myForm.user.$dirty && myForm.password.$invalid">
 
 </form>
 <div  class="well well-lg"  width=25px ng-show="errorMessage ">

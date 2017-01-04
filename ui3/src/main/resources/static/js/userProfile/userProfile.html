@@ -68,10 +68,10 @@ myForm.email.$dirty && myForm.password.$invalid||myForm.user.$dirty && myForm.pa
 <p ><strong> UserName:{{userData.username}}</strong></p>
 <p><strong>Mobile :{{userData.mobile}}</strong></p>
 <p><strong>Email :{{userData.email}}</strong></p> 
-
+<p><strong>Password :{{userData.password}}</strong></p> 
      <h3> Click here for Main page and login again to access  <a   href='/'>MainPage</a> </h3>
     </div></div>
      <div class="alert alert-danger"  ng-show="error" >
     <h1>{{error}}</h1>
-    <h3> Click here to update  the form again  <a   href='/ui3/'>Update Again</a> </h3>
+    <h3> Click here to update  the form again  <a   href='/ui3/#/'>Update Again</a> </h3>
     </div>

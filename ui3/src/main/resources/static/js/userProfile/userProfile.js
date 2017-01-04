@@ -44,11 +44,8 @@ angular.module('userProfile', []).controller('userProfile', function( $scope,$ht
 					password:$scope.password	
 					
 			}
-			if($scope.isEdit1)
-			{
-				var response = $http.delete('/resource/username/' + userDetails.id);
-				response.success(function(data, status, headers, config) {
-					var response = $http.post('/resource/username/', formData)
+			
+			var response = $http.put('/resource/username/'+$scope.id, formData)
 					response.success(function(data, status, headers, config) {
 						$scope.userData=data;
 						$scope.submit=true;
@@ -58,20 +55,9 @@ angular.module('userProfile', []).controller('userProfile', function( $scope,$ht
 						$scope.error=data.message;	
 						$scope.isEdit1=false;
 						$scope.submit=false;
-						var response2 = $http.post('/resource/username/', userDetails)
-						response2.success(function(data, status, headers, config) {
-							$scope.userData=data;
+						
 						});
-						response2.error(function(data, status, headers, config) {
-							
-						});
-					});
-				});
-				response.error(function(data, status, headers, config) {
-				});
-			}
-		
-		
+	
 		};
 		
 	};

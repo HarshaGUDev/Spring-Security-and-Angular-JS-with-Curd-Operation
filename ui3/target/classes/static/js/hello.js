@@ -1,5 +1,5 @@
 angular
-		.module('hello', [ 'ngRoute', 'home', 'message', 'form1','userProfile','AdminAccess'])
+		.module('hello', [ 'ngRoute', 'home',  'form1','userProfile','AdminAccess'])
 		.config(
 
 				function($routeProvider, $httpProvider, $locationProvider) {
@@ -13,10 +13,6 @@ angular
 					}).when('/form1', {
 						templateUrl : 'js/form1/form1.html',
 						controller : 'form1',
-						controllerAs : 'controller'
-					}).when('/message', {
-						templateUrl : 'js/message/message.html',
-						controller : 'message',
 						controllerAs : 'controller'
 					}).when('/userProfile', {
 						templateUrl : 'js/userProfile/userProfile.html',
@@ -53,10 +49,5 @@ function($http) {
 	}, function() {
 		self.authenticated = false;
 	});
-//	self.logout = function() {
-//		$http.post('/logout', {}).finally(function() {
-//			self.authenticated = false;
-//			
-//		})};	
 
 });

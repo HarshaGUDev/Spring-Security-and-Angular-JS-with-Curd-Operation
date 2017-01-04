@@ -1,8 +1,7 @@
 angular.module('AdminAccess', [])
 
 .controller('AdminAccess', function($scope,$http) {
-
-	var self = this;
+var self = this;
 	$scope.show=false;
 	$scope.showform=true;
 	$scope.message;
@@ -10,9 +9,9 @@ $scope.showMessage=false;
 	$http.get('resource/').then(function(response) {
 		self.greeting = response.data;
 	});
-
-	$scope.isEdit = true;
     $scope.enterdata = function() {
+    	
+		$scope.errorMessage=false;
     	$scope.showform=false;
     	$scope.xyz=true;
     	var formData = {
@@ -21,42 +20,26 @@ $scope.showMessage=false;
 				"email":$scope.email,
 				"password":$scope.password,
 		};
-   
-    	if($scope.isEdit){
-    		$scope.success=false,
-    		$scope.errorMessage=false;
-    		var response = $http.post('/resource/people/', formData)
-    		response.success(function(data, status, headers, config) {
-    			$scope.userData=data;
-    			$scope.getAll();
-    			$scope.endEdit();
-    			$scope.showMessage=true;
-    			$scope.success="Updating is  Successful.. Below is your entered data";
-    		});
-    		response.error(function(data, status, headers, config) {
-    			//alert( "Exception details: " + JSON.stringify({data: data}));
-    			$scope.error=data;
-    			$scope.showMessage=false;
-    			console.log(data);
-    			$scope.errorMessage=data.error +"<br>"+data.message;
-    		});
-    		
-    	} else {
-    		var response = $http.delete('/resource/people/' + $scope.id);
-    		response.success(function(data, status, headers, config) {
-    			$scope.isEdit = true;
-    			 $scope.enterdata();
-    		});
-    		response.error(function(data, status, headers, config) {
-    			//alert( "Exception details: " + JSON.stringify({data: data}));
-    			$scope.error=data;
-    	//		$scope.errorMessage="Username is already exist";
-    		});
-    	}
-		
+    	var response = $http.put('/resource/people/'+$scope.id, formData)
+		response.success(function(data, status, headers, config) {
+			$scope.userData=data;
+			$scope.showMessage=true;
+			$scope.getAll();
+			$scope.endEdit();
+			
+		});
+		response.error(function(data, status, headers, config) {
+			//alert( "Exception details: " + JSON.stringify({data: data}));
+			
+			$scope.error=data;
+			$scope.showMessage=false;
+			console.log(data);
+			$scope.errorMessage=data.error +"<br>"+data.message;
+		});	
 	};
 
 	$scope.delete= function(id) {
+		
 		var response = $http.delete('/resource/people/'+id);
 		response.success(function(data, status, headers, config) {
 			$scope.getAll();
@@ -66,7 +49,7 @@ $scope.showMessage=false;
 		});
 	};
 	$scope.getAll= function() {
-
+		$scope.xyz=false;
 		var response = $http.get('/resource/people/');
 		response.success(function(data, status, headers, config) {
 			$scope.data=data;
@@ -78,13 +61,14 @@ $scope.showMessage=false;
 		});};
 
 	$scope.startEdit= function(data) {
-		$scope.isEdit = false;
 		$scope.show=true;
 		$scope.username = data.username;
 		$scope.mobile = data.mobile;
 		$scope.email = data.email;
 		$scope.id = data.id;
 		$scope.password = data.password;
+		console.log('hi11');
+	
 	};
 	$scope.endEdit= function(data) {
 		$scope.isEdit = true;
@@ -99,5 +83,6 @@ $scope.showMessage=false;
 		       window.location = "/";
 		       
 		 }
-		$scope.getAll();
+	 $scope.getAll();
 });
+	

@@ -4,6 +4,7 @@ import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,5 +34,18 @@ public class AdminController {
 public  Users postDetails(@RequestBody Users user)throws Exception {
 	return  personRepository.save(user);	
 } 		
-
+@RequestMapping(value = "/people/{id}", method = RequestMethod.PUT)
+public ResponseEntity<Users> updateUser(@PathVariable("id") long id, @RequestBody Users user)throws Exception  {
+	System.out.println("Updating User " + id);
+	
+	Users currentUser =  personRepository.findById(id);
+	
+	 currentUser.setUsername(user.getUsername());
+     currentUser.setMobile(user.getMobile());
+     currentUser.setEmail(user.getEmail());
+     currentUser.setPassword(user.getPassword());
+     
+     personRepository.save(currentUser);
+     return new ResponseEntity<Users>(currentUser, HttpStatus.OK);
+ }
 }
